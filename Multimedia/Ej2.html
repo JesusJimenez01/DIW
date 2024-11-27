@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibujar rectángulo azul</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="miCanvas" width="300" height="200"></canvas>
+
+    <script>
+        let canvas = document.getElementById("miCanvas");
+        let ctx = canvas.getContext("2d");
+
+        ctx.strokeStyle = "blue";
+        ctx.lineWidth = 5;
+
+        ctx.strokeRect(50, 50, 150, 100);
+    </script>
+    
+</body>
+</html>
