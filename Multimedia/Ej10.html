@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="miCanvas" width="300" height="200"></canvas>
+
+    <script>
+        var canvas = document.getElementById("miCanvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.font = "40px Arial";
+        ctx.fillStyle = "blue";
+        ctx.font = "bold 40px Arial";
+
+        var text = "Ejercicio Final";
+        var x = 10;
+        var y = canvas.height / 2 + 20;
+
+        ctx.fillText(text, x, y);
+    </script>
+</body>
+</html>

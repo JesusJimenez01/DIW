@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<title>Propuesto Canvas </title>
+<script type="text/javascript">
+    function dibujarCanvas(){
+    var canvas = document.getElementById('miCanvas');
+    var contexto = canvas.getContext('2d');
+    contexto.strokeRect (0, 0, 550, 350);
+
+    // gradiente lineal vertical para el cielo
+    let gradCielo = contexto.createLinearGradient(0,0,0, 200);
+    gradCielo.addColorStop(0,"deepskyblue");
+    gradCielo.addColorStop(1, "white");
+
+    contexto.fillStyle = gradCielo;
+    contexto.fillRect(0,0, 550, 200);
+
+    // gradiente lineal vertical para las montañas
+    let gradMontañas = contexto.createLinearGradient(0, 150, 0, 50);
+    gradMontañas.addColorStop(0, "saddlebrown"); 
+    gradMontañas.addColorStop(1, "white");
+    contexto.fillStyle = gradMontañas;
+
+    // trazado para montañas
+    contexto.beginPath();
+    contexto.moveTo(0, 150);
+    contexto.lineTo(100, 75);
+    contexto.lineTo(200, 150);
+    contexto.lineTo(300, 100);
+    contexto.lineTo(400, 150);
+    contexto.lineTo(500, 50);
+    contexto.lineTo(550, 150);
+    contexto.lineTo(550, 350);
+    contexto.lineTo(0, 350);
+    contexto.closePath();
+    contexto.fill();
+
+    // gradiente lineal vertical para el suelo
+    let gradSuelo = contexto.createLinearGradient(0,200,0,350);
+    gradSuelo.addColorStop(0, "forestgreen");
+    gradSuelo.addColorStop(1, "white");
+    contexto.fillStyle = gradSuelo;
+    contexto.fillRect(0, 200, 550, 350);
+    // degradado radial para la nube
+    let gradNube = contexto.createRadialGradient(390, 90, 0, 390, 90, 40);
+    gradNube.addColorStop(0, "rgb(49, 49, 151)");
+    gradNube.addColorStop(1, "navy");
+
+    contexto.fillStyle = gradNube;
+
+    // Draw clouds
+    contexto.beginPath();
+    contexto.arc(350, 90, 30, 0, Math.PI * 2);
+    contexto.arc(390, 90, 35, 0, Math.PI * 2);
+    contexto.arc(420, 90, 30, 0, Math.PI * 2);
+    contexto.fill();
+    // dibujar lluvia
+    contexto.strokeStyle = "rgba(0, 0, 255, 0.5)"; 
+    contexto.lineWidth = 2;
+
+    let inicioX = 340; 
+    let inicioY = 130;
+
+    let gotasPorFila = 9;
+    let anchoNube = 90;
+    let espacioEntreGotas = anchoNube / gotasPorFila;
+
+    for (let fila = 0; fila < 3; fila++) {
+        for (let i = 0; i < gotasPorFila; i++) {
+            let x1 = inicioX + i * espacioEntreGotas + fila * 5; // Va moviendo cada gota de la fila a la derecha
+            let y1 = inicioY + fila * 20; // cada fila se mueve 20px hacia abajo
+            let x2 = x1 + 10;
+            let y2 = y1 + 10;
+
+            contexto.beginPath();
+            contexto.moveTo(x1, y1);
+            contexto.lineTo(x2, y2);
+            contexto.stroke();
+        }
+    }
+    // texto
+    contexto.font = "30px Verdana, Arial";
+    contexto.fillStyle = "yellow";
+    contexto.fillText("Canvas", 10, 40);
+    }
+</script>
+</head>
+<body onLoad="dibujarCanvas();">
+<canvas id="miCanvas" width="550" height="350">Su navegador no soporta
+Canvas.</canvas>
+</body>
+</html>

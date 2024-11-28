@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="miCanvas" width="400" height="200"></canvas>
+
+    <script>
+        let canvas = document.getElementById("miCanvas");
+        let ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "red";
+
+        ctx.beginPath();
+        ctx.ellipse(200, 100, 200, 100, 0, 0, 2 * Math.PI);
+        ctx.fill();
+    </script>
+</body>
+</html>
