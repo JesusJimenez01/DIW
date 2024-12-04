@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Casa</title>
+    <style>
+        .paredes{
+            stroke: black;
+            stroke-width: 2px;
+            fill: white;
+        }
+        .techo{
+            fill: none;
+            stroke: #df1f39;
+            stroke-width: 10px;
+            stroke-linecap: round;
+        }
+        .puerta{
+            stroke-width: 2px;
+            stroke: black;
+            fill: #df1f39;
+        }
+        .escalon{
+            stroke-width: 2px;
+            stroke: black;
+            fill: gray;
+        }
+        .pomo{
+            stroke-width: 2px;
+            stroke: black;
+            fill: white;
+        }
+        .ventana{
+            stroke-width: 2px;
+            stroke: black;
+            fill: #ecec7d;
+        }
+        .linea-ventana{
+            stroke: black;
+            stroke-width: 2px;
+        }
+        .marco-ventana{
+            stroke-width: 2px;
+            stroke: black;
+            fill: #df1f39;
+        }
+    </style>
+</head>
+<body>
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+    
+    <polygon class="paredes" points="-65,80 -65,-10 0,-70 65,-10 65,80" />
+
+    <polyline class="techo" points="-75,-9 0,-78 75,-9"/>
+
+    <rect class="puerta" x="-40" y="10" width="30" height="60" rx="2"/>
+    <rect class="escalon" x="-45" y="70" width="40" height="5" />
+    <rect class="escalon" x="-48" y="75" width="45" height="5" />
+
+    <circle class="pomo" r="2" cx="-30" cy="40" />
+
+    <circle class="ventana" r="15" cx="0" cy="-27" />
+    <line class="linea-ventana" x1="-15" y1="-27" x2="15" y2="-27"/>
+    <line class="linea-ventana" x1="0" y1="-43" x2="0" y2="-13"/>
+
+    <rect class="ventana" x="10" y="15" width="35" height="30" rx="5"/>
+    <rect class="marco-ventana" x="8" y="45" width="40" height="5" rx="5"/>
+    <line class="linea-ventana" x1="10" y1="30" x2="45" y2="30"/>
+    <line class="linea-ventana" x1="27" y1="45" x2="27" y2="15"/>
+
+</svg>
+    
+</body>
+</html>
